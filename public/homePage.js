@@ -49,9 +49,9 @@ moneyManager.addMoneyCallback = function addMoney({ currency, amount }) {
     ApiConnector.addMoney(({ currency, amount }), some => {
         if (some.success) {
             ProfileWidget.showProfile(some.data);
-            some.message = 'успех'
+            some.message = 'Молодец, так держать! Ты на правильном пути!'
         } else {
-            some.message = 'провал'
+            some.message = some.error;
         }
         moneyManager.setMessage(some.success, some.message);
     });

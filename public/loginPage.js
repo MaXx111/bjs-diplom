@@ -20,10 +20,10 @@ bestUserForm.registerFormCallback = data => {
     let password = data.password;
 
     ApiConnector.register({login, password}, data => {
-        if (login && password) {
+        if (data.success) {
             location.reload();
         } else {
-            bestUserForm.setRegisterErrorMessage('Все херня, давай по новой');
+            bestUserForm.setRegisterErrorMessage(data.error);
         }
     })
 }
